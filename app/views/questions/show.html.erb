@@ -1,0 +1,6 @@
+<%= link_to "User-#{@question.user.id}", follow_user_path(@question.user), method: :post, class: 'follow_user' %>
+<%= link_to "Topic-#{@question.topic.id}", follow_topic_path(@question.topic), method: :post, class: 'follow_topic' %>
+
+<% @question.answers.each do |answer| %>
+  <p class="answer"><%= "answer #{answer.id}" %></p>
+<% end %>
