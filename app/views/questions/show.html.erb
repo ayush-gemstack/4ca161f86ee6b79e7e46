@@ -1,6 +1,23 @@
-<%= link_to "User-#{@question.user.id}", follow_user_path(@question.user), method: :post, class: 'follow_user' %>
-<%= link_to "Topic-#{@question.topic.id}", follow_topic_path(@question.topic), method: :post, class: 'follow_topic' %>
+<br>
+Follow this User: <%= link_to "#{@question.user.email}", follow_user_path(@question.user), method: :post, class: 'follow_user' %>
+<br>
+Follow this Topic: <%= link_to "#{@question.topic.topic}", follow_topic_path(@question.topic), method: :post, class: 'follow_topic' %>
 
+<br>
+<h2>Answers</h2>
 <% @question.answers.each do |answer| %>
-  <p class="answer"><%= "answer #{answer.id}" %></p>
+  <p class="answer">answer: <%= "#{answer.answer}" %></p>
+<% end %>
+<br>
+
+<h2>Submit your answer</h2>
+<%= form_for :answer, url: question_answers_path(@question.id) do |form| %>
+  <p>
+    <%= form.label :answer %><br>
+    <%= form.text_field :answer %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
 <% end %>

@@ -14,7 +14,9 @@
     <p class="alert"><%= alert %></p>
 
     <% if user_signed_in? %>
+      <%= link_to 'Back', :back %>
       <%= link_to "logout (#{current_user.email})", destroy_user_session_path, method: :delete %>
+      <%= link_to 'New Topic', new_topic_path %>
     <% else %>
       <%= link_to 'sign up', '/users/sign_up' %>
       <%= link_to 'sign in', '/users/sign_in' %>

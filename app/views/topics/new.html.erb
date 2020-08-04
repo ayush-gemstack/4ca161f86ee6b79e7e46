@@ -1,0 +1,11 @@
+<h2>Create new Topic</h2>
+<%= form_for :topic, url: topics_path do |form| %>
+  <p>
+    <%= form.label :topic %><br>
+    <%= form.text_field :topic %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

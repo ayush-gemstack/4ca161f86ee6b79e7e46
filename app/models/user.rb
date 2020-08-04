@@ -8,8 +8,7 @@ class User < ApplicationRecord
   has_many :answers
 
   has_many :user_followers
-  has_many :followers, through: :user_followers
-  has_many :following, through: :user_followers, source: :user
+  has_many :following, through: :user_followers, source: :follower
 
   has_many :topic_followers
   has_many :topics, through: :topic_followers
